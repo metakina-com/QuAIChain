@@ -1259,6 +1259,19 @@
                 border-radius: 8px;
                 padding: 12px;
             }
+
+            .placeholder {
+                background-color: #e0e0e0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #888;
+                font-size: 14px;
+            }
+
+            .placeholder::after {
+                content: attr(data-placeholder);
+            }
         }
     </style>
 </head>
@@ -1268,10 +1281,20 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">
-                    <img src="/api/placeholder/40/40" alt="QuAIChain Logo" />
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#1a237e" />
+                                <stop offset="100%" stop-color="#3f51b5" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="40" height="40" fill="url(#logoGradient)" rx="8"></rect>
+                        <text x="20" y="25" font-size="16" font-weight="bold" text-anchor="middle"
+                            fill="white">QAI</text>
+                    </svg>
                     QuAIChain
-                </a>
+                </div>
                 <div class="mobile-toggle">☰</div>
                 <ul class="nav-links">
                     <li><a href="#about">关于我们</a></li>
@@ -1688,7 +1711,7 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="/api/placeholder/300/300" alt="Dr. Emma Patel" />
+                        <img src="https://placehold.co/300x300" alt="Dr. Emma Patel" />
                     </div>
                     <div class="team-info">
                         <h3 class="team-name">Dr. Emma Patel</h3>
@@ -1704,7 +1727,7 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="/api/placeholder/300/300" alt="Prof. Hiroshi Tanaka" />
+                        <img src="https://placehold.co/300x300" alt="Prof. Hiroshi Tanaka" />
                     </div>
                     <div class="team-info">
                         <h3 class="team-name">Prof. Hiroshi Tanaka</h3>
@@ -1720,7 +1743,7 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="/api/placeholder/300/300" alt="Dr. Sophia Lee" />
+                        <img src="https://placehold.co/300x300" alt="Dr. Sophia Lee" />
                     </div>
                     <div class="team-info">
                         <h3 class="team-name">Dr. Sophia Lee</h3>
@@ -1736,7 +1759,7 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="/api/placeholder/300/300" alt="Mr. Raj Singh" />
+                        <img src="https://placehold.co/300x300" alt="Mr. Raj Singh" />
                     </div>
                     <div class="team-info">
                         <h3 class="team-name">Mr. Raj Singh</h3>
