@@ -1895,7 +1895,184 @@
             </div>
 
             <div class="architecture-content" id="qesc">
-                <img src="/api/placeholder/1000/500" alt="QESC Architecture" class="architecture-image" />
+                <svg width="1000" height="500" viewBox="0 0 1000 500" class="architecture-image">
+                    <!-- 背景 -->
+                    <rect width="1000" height="500" fill="#f5f7ff" />
+                    <pattern id="qesc-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(63, 81, 181, 0.1)" stroke-width="1" />
+                    </pattern>
+                    <rect width="1000" height="500" fill="url(#qesc-grid)" opacity="0.3" />
+
+                    <!-- 标题 -->
+                    <text x="500" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold"
+                        text-anchor="middle" fill="#1a237e">量子增强智能合约 (QESC) 架构</text>
+
+                    <!-- 中央QESC核心 -->
+                    <circle cx="500" cy="250" r="100" fill="#d1c4e9" stroke="#673ab7" stroke-width="3" />
+                    <circle cx="500" cy="250" r="80" fill="#b39ddb" stroke="#673ab7" stroke-width="1" />
+                    <circle cx="500" cy="250" r="60" fill="#9575cd" stroke="#673ab7" stroke-width="1" />
+                    <text x="500" y="240" font-family="Arial, sans-serif" font-size="20" font-weight="bold"
+                        text-anchor="middle" fill="#ffffff">QESC</text>
+                    <text x="500" y="270" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                        fill="#ffffff">核心引擎</text>
+
+                    <!-- 四大组件模块 -->
+                    <!-- 量子算法加速 -->
+                    <g transform="translate(300, 130)">
+                        <rect x="-120" y="-60" width="240" height="120" rx="10" fill="#bbdefb" stroke="#1976d2"
+                            stroke-width="2" />
+                        <text x="0" y="-30" font-family="Arial, sans-serif" font-size="18" font-weight="bold"
+                            text-anchor="middle" fill="#0d47a1">量子算法加速</text>
+                        <line x1="-100" y1="-15" x2="100" y2="-15" stroke="#1976d2" stroke-width="1" />
+                        <text x="0" y="10" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            量子并行计算</text>
+                        <text x="0" y="35" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            量子优化算法</text>
+                        <!-- 连接线 -->
+                        <path d="M100,0 C150,0 180,50 200,120" stroke="#1976d2" stroke-width="2" fill="none"
+                            stroke-dasharray="5,3" />
+                    </g>
+
+                    <!-- AI模型优化 -->
+                    <g transform="translate(700, 130)">
+                        <rect x="-120" y="-60" width="240" height="120" rx="10" fill="#c8e6c9" stroke="#388e3c"
+                            stroke-width="2" />
+                        <text x="0" y="-30" font-family="Arial, sans-serif" font-size="18" font-weight="bold"
+                            text-anchor="middle" fill="#1b5e20">AI模型优化</text>
+                        <line x1="-100" y1="-15" x2="100" y2="-15" stroke="#388e3c" stroke-width="1" />
+                        <text x="0" y="10" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            量子机器学习</text>
+                        <text x="0" y="35" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            模型训练加速</text>
+                        <!-- 连接线 -->
+                        <path d="M-100,0 C-150,0 -180,50 -200,120" stroke="#388e3c" stroke-width="2" fill="none"
+                            stroke-dasharray="5,3" />
+                    </g>
+
+                    <!-- 智能合约执行环境 -->
+                    <g transform="translate(300, 370)">
+                        <rect x="-120" y="-60" width="240" height="120" rx="10" fill="#ffecb3" stroke="#ffa000"
+                            stroke-width="2" />
+                        <text x="0" y="-30" font-family="Arial, sans-serif" font-size="18" font-weight="bold"
+                            text-anchor="middle" fill="#e65100">智能合约执行环境</text>
+                        <line x1="-100" y1="-15" x2="100" y2="-15" stroke="#ffa000" stroke-width="1" />
+                        <text x="0" y="10" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            高性能虚拟机</text>
+                        <text x="0" y="35" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            智能决策支持</text>
+                        <!-- 连接线 -->
+                        <path d="M100,0 C150,0 180,-50 200,-120" stroke="#ffa000" stroke-width="2" fill="none"
+                            stroke-dasharray="5,3" />
+                    </g>
+
+                    <!-- 安全性保障 -->
+                    <g transform="translate(700, 370)">
+                        <rect x="-120" y="-60" width="240" height="120" rx="10" fill="#ffcdd2" stroke="#d32f2f"
+                            stroke-width="2" />
+                        <text x="0" y="-30" font-family="Arial, sans-serif" font-size="18" font-weight="bold"
+                            text-anchor="middle" fill="#b71c1c">安全性保障</text>
+                        <line x1="-100" y1="-15" x2="100" y2="-15" stroke="#d32f2f" stroke-width="1" />
+                        <text x="0" y="10" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            后量子加密</text>
+                        <text x="0" y="35" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            零知识证明</text>
+                        <!-- 连接线 -->
+                        <path d="M-100,0 C-150,0 -180,-50 -200,-120" stroke="#d32f2f" stroke-width="2" fill="none"
+                            stroke-dasharray="5,3" />
+                    </g>
+
+                    <!-- 数据流箭头 -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#3949ab" />
+                        </marker>
+                    </defs>
+
+                    <!-- 数据流线条 -->
+                    <g>
+                        <!-- 量子算法加速 到 AI模型优化 -->
+                        <path d="M350,180 C400,200 600,200 650,180" stroke="#3949ab" stroke-width="2" fill="none"
+                            marker-end="url(#arrowhead)" />
+
+                        <!-- AI模型优化 到 安全性保障 -->
+                        <path d="M650,320 C600,300 400,300 350,320" stroke="#3949ab" stroke-width="2" fill="none"
+                            marker-end="url(#arrowhead)" />
+
+                        <!-- 安全性保障 到 智能合约执行环境 -->
+                        <path d="M580,370 C560,390 440,390 420,370" stroke="#3949ab" stroke-width="2" fill="none"
+                            marker-end="url(#arrowhead)" />
+
+                        <!-- 智能合约执行环境 到 量子算法加速 -->
+                        <path d="M420,130 C440,110 560,110 580,130" stroke="#3949ab" stroke-width="2" fill="none"
+                            marker-end="url(#arrowhead)" />
+                    </g>
+
+                    <!-- 外部接口部分 -->
+                    <!-- 左侧 -->
+                    <g transform="translate(60, 250)">
+                        <rect x="-40" y="-60" width="80" height="120" rx="5" fill="#e8eaf6" stroke="#3f51b5"
+                            stroke-width="2" />
+                        <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold"
+                            text-anchor="middle" transform="rotate(-90)" fill="#3f51b5">区块链接口</text>
+                        <path d="M40,0 C100,0 150,0 180,0" stroke="#3f51b5" stroke-width="2" fill="none"
+                            stroke-dasharray="4,2" />
+                    </g>
+
+                    <!-- 右侧 -->
+                    <g transform="translate(940, 250)">
+                        <rect x="-40" y="-60" width="80" height="120" rx="5" fill="#e8eaf6" stroke="#3f51b5"
+                            stroke-width="2" />
+                        <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold"
+                            text-anchor="middle" transform="rotate(90)" fill="#3f51b5">量子资源接口</text>
+                        <path d="M-40,0 C-100,0 -150,0 -180,0" stroke="#3f51b5" stroke-width="2" fill="none"
+                            stroke-dasharray="4,2" />
+                    </g>
+
+                    <!-- 上方 -->
+                    <g transform="translate(500, 60)">
+                        <rect x="-60" y="-40" width="120" height="40" rx="5" fill="#e8eaf6" stroke="#3f51b5"
+                            stroke-width="2" />
+                        <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" font-weight="bold"
+                            text-anchor="middle" fill="#3f51b5">API接口</text>
+                        <path d="M0,40 C0,60 0,80 0,100" stroke="#3f51b5" stroke-width="2" fill="none"
+                            stroke-dasharray="4,2" />
+                    </g>
+
+                    <!-- 下方 -->
+                    <g transform="translate(500, 440)">
+                        <rect x="-90" y="-40" width="180" height="40" rx="5" fill="#e8eaf6" stroke="#3f51b5"
+                            stroke-width="2" />
+                        <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" font-weight="bold"
+                            text-anchor="middle" fill="#3f51b5">基础设施访问层</text>
+                        <path d="M0,-40 C0,-60 0,-80 0,-100" stroke="#3f51b5" stroke-width="2" fill="none"
+                            stroke-dasharray="4,2" />
+                    </g>
+
+                    <!-- 性能指标框 -->
+                    <g transform="translate(850, 60)">
+                        <rect x="-60" y="-25" width="120" height="90" rx="5" fill="#ede7f6" stroke="#673ab7"
+                            stroke-width="1" />
+                        <text x="0" y="-5" font-family="Arial, sans-serif" font-size="12" font-weight="bold"
+                            text-anchor="middle" fill="#4a148c">性能提升</text>
+                        <text x="0" y="20" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#4a148c">计算速度:
+                            100x</text>
+                        <text x="0" y="40" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#4a148c">能耗:
+                            -95%</text>
+                        <text x="0" y="60" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#4a148c">安全等级:
+                            最高</text>
+                    </g>
+                </svg>
 
                 <div class="architecture-features">
                     <div class="architecture-feature">
@@ -1921,7 +2098,215 @@
             </div>
 
             <div class="architecture-content" id="protocol">
-                <img src="/api/placeholder/1000/500" alt="Core Protocols" class="architecture-image" />
+                <svg width="1000" height="500" viewBox="0 0 1000 500" class="architecture-image">
+                    <!-- 背景 -->
+                    <rect width="1000" height="500" fill="#f8f9fc" />
+                    <pattern id="protocol-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(63, 81, 181, 0.1)" stroke-width="1" />
+                    </pattern>
+                    <rect width="1000" height="500" fill="url(#protocol-grid)" opacity="0.3" />
+
+                    <!-- 标题 -->
+                    <text x="500" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold"
+                        text-anchor="middle" fill="#1a237e">QuAIChain 核心协议架构</text>
+
+                    <!-- 中心协议管理层 -->
+                    <g transform="translate(500, 250)">
+                        <rect x="-150" y="-60" width="300" height="120" rx="60" fill="#e8eaf6" stroke="#3f51b5"
+                            stroke-width="3" />
+                        <text x="0" y="-20" font-family="Arial, sans-serif" font-size="20" font-weight="bold"
+                            text-anchor="middle" fill="#1a237e">核心协议管理层</text>
+                        <text x="0" y="10" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#3f51b5">统一协议标准</text>
+                        <text x="0" y="35" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#3f51b5">跨层通信管理</text>
+                    </g>
+
+                    <!-- 量子-AI桥接协议(QABP) -->
+                    <g transform="translate(250, 110)">
+                        <rect x="-150" y="-60" width="300" height="120" rx="10" fill="#bbdefb" stroke="#1976d2"
+                            stroke-width="2" />
+                        <text x="0" y="-35" font-family="Arial, sans-serif" font-size="18" font-weight="bold"
+                            text-anchor="middle" fill="#0d47a1">量子-AI桥接协议(QABP)</text>
+                        <line x1="-130" y1="-15" x2="130" y2="-15" stroke="#1976d2" stroke-width="1" />
+                        <text x="0" y="10" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            AI模型与量子处理器交互接口</text>
+                        <text x="0" y="40" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            量子算法转译与优化</text>
+
+                        <!-- 连接线到中心 -->
+                        <path d="M150,0 C200,0 225,50 250,140" stroke="#1976d2" stroke-width="2" fill="none"
+                            marker-end="url(#arrowBlue)" />
+                    </g>
+
+                    <!-- 适应性共识机制(ACM) -->
+                    <g transform="translate(750, 110)">
+                        <rect x="-150" y="-60" width="300" height="120" rx="10" fill="#c8e6c9" stroke="#388e3c"
+                            stroke-width="2" />
+                        <text x="0" y="-35" font-family="Arial, sans-serif" font-size="18" font-weight="bold"
+                            text-anchor="middle" fill="#1b5e20">适应性共识机制(ACM)</text>
+                        <line x1="-130" y1="-15" x2="130" y2="-15" stroke="#388e3c" stroke-width="1" />
+                        <text x="0" y="10" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            动态选择最优共识算法</text>
+                        <text x="0" y="40" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            平衡效率与安全性</text>
+
+                        <!-- 连接线到中心 -->
+                        <path d="M-150,0 C-200,0 -225,50 -250,140" stroke="#388e3c" stroke-width="2" fill="none"
+                            marker-end="url(#arrowGreen)" />
+                    </g>
+
+                    <!-- 多方安全计算(DMPC) -->
+                    <g transform="translate(250, 390)">
+                        <rect x="-150" y="-60" width="300" height="120" rx="10" fill="#ffecb3" stroke="#ffa000"
+                            stroke-width="2" />
+                        <text x="0" y="-35" font-family="Arial, sans-serif" font-size="18" font-weight="bold"
+                            text-anchor="middle" fill="#e65100">去中心化保密多方计算(DMPC)</text>
+                        <line x1="-130" y1="-15" x2="130" y2="-15" stroke="#ffa000" stroke-width="1" />
+                        <text x="0" y="10" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            保护数据隐私的协作计算</text>
+                        <text x="0" y="40" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            加密状态下的计算验证</text>
+
+                        <!-- 连接线到中心 -->
+                        <path d="M150,0 C200,0 225,-50 250,-140" stroke="#ffa000" stroke-width="2" fill="none"
+                            marker-end="url(#arrowOrange)" />
+                    </g>
+
+                    <!-- 量子安全层(QSL) -->
+                    <g transform="translate(750, 390)">
+                        <rect x="-150" y="-60" width="300" height="120" rx="10" fill="#f8bbd0" stroke="#c2185b"
+                            stroke-width="2" />
+                        <text x="0" y="-35" font-family="Arial, sans-serif" font-size="18" font-weight="bold"
+                            text-anchor="middle" fill="#880e4f">量子安全层(QSL)</text>
+                        <line x1="-130" y1="-15" x2="130" y2="-15" stroke="#c2185b" stroke-width="1" />
+                        <text x="0" y="10" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            后量子密码学实现</text>
+                        <text x="0" y="40" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#333333">•
+                            抵御量子攻击的安全保障</text>
+
+                        <!-- 连接线到中心 -->
+                        <path d="M-150,0 C-200,0 -225,-50 -250,-140" stroke="#c2185b" stroke-width="2" fill="none"
+                            marker-end="url(#arrowPink)" />
+                    </g>
+
+                    <!-- 跨协议通信线 -->
+                    <!-- QABP 到 ACM -->
+                    <path d="M400,110 C500,60 600,60 700,110" stroke="#03a9f4" stroke-width="2" stroke-dasharray="5,3"
+                        fill="none" marker-end="url(#arrowDashed)" />
+
+                    <!-- ACM 到 QSL -->
+                    <path d="M750,230 L750,330" stroke="#03a9f4" stroke-width="2" stroke-dasharray="5,3" fill="none"
+                        marker-end="url(#arrowDashed)" />
+
+                    <!-- QSL 到 DMPC -->
+                    <path d="M600,390 C500,440 400,440 300,390" stroke="#03a9f4" stroke-width="2" stroke-dasharray="5,3"
+                        fill="none" marker-end="url(#arrowDashed)" />
+
+                    <!-- DMPC 到 QABP -->
+                    <path d="M250,330 L250,230" stroke="#03a9f4" stroke-width="2" stroke-dasharray="5,3" fill="none"
+                        marker-end="url(#arrowDashed)" />
+
+                    <!-- 资源调度协议 小块 -->
+                    <g transform="translate(500, 40)">
+                        <rect x="-90" y="-25" width="180" height="50" rx="25" fill="#e1f5fe" stroke="#0288d1"
+                            stroke-width="2" />
+                        <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" font-weight="bold"
+                            text-anchor="middle" fill="#01579b">资源调度协议</text>
+
+                        <!-- 连接线到中心 -->
+                        <line x1="0" y1="25" x2="0" y2="125" stroke="#0288d1" stroke-width="2" stroke-dasharray="3,2" />
+                    </g>
+
+                    <!-- 跨链交互协议 小块 -->
+                    <g transform="translate(500, 460)">
+                        <rect x="-90" y="-25" width="180" height="50" rx="25" fill="#e1f5fe" stroke="#0288d1"
+                            stroke-width="2" />
+                        <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" font-weight="bold"
+                            text-anchor="middle" fill="#01579b">跨链交互协议</text>
+
+                        <!-- 连接线到中心 -->
+                        <line x1="0" y1="-25" x2="0" y2="-125" stroke="#0288d1" stroke-width="2"
+                            stroke-dasharray="3,2" />
+                    </g>
+
+                    <!-- 左侧协议层次说明 -->
+                    <g transform="translate(70, 250)">
+                        <rect x="-50" y="-120" width="100" height="240" rx="10" fill="#f5f5f5" stroke="#9e9e9e"
+                            stroke-width="1" />
+                        <text x="0" y="-90" font-family="Arial, sans-serif" font-size="12" font-weight="bold"
+                            text-anchor="middle" fill="#616161">协议层次</text>
+                        <line x1="-40" y1="-75" x2="40" y2="-75" stroke="#9e9e9e" stroke-width="1" />
+
+                        <text x="0" y="-50" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#616161">应用层协议</text>
+                        <text x="0" y="0" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#616161">核心层协议</text>
+                        <text x="0" y="50" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#616161">基础设施层</text>
+                        <text x="0" y="100" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#616161">网络层协议</text>
+                    </g>
+
+                    <!-- 右侧技术规格 -->
+                    <g transform="translate(930, 250)">
+                        <rect x="-50" y="-120" width="100" height="240" rx="10" fill="#ede7f6" stroke="#7e57c2"
+                            stroke-width="1" />
+                        <text x="0" y="-90" font-family="Arial, sans-serif" font-size="12" font-weight="bold"
+                            text-anchor="middle" fill="#4527a0">技术规格</text>
+                        <line x1="-40" y1="-75" x2="40" y2="-75" stroke="#7e57c2" stroke-width="1" />
+
+                        <text x="0" y="-50" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#4527a0">延迟:
+                            &lt;50ms</text>
+                        <text x="0" y="-25" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#4527a0">带宽:
+                            10Gbps</text>
+                        <text x="0" y="0" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#4527a0">吞吐量:
+                            100K+</text>
+                        <text x="0" y="25" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#4527a0">安全等级:
+                            L5</text>
+                        <text x="0" y="50" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#4527a0">容错性:
+                            99.99%</text>
+                        <text x="0" y="75" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#4527a0">互操作性:
+                            全面</text>
+                    </g>
+
+                    <!-- 箭头定义 -->
+                    <defs>
+                        <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#1976d2" />
+                        </marker>
+
+                        <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#388e3c" />
+                        </marker>
+
+                        <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#ffa000" />
+                        </marker>
+
+                        <marker id="arrowPink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#c2185b" />
+                        </marker>
+
+                        <marker id="arrowDashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#03a9f4" />
+                        </marker>
+                    </defs>
+                </svg>
 
                 <div class="architecture-features">
                     <div class="architecture-feature">
@@ -1947,7 +2332,267 @@
             </div>
 
             <div class="architecture-content" id="security">
-                <img src="/api/placeholder/1000/500" alt="Security Framework" class="architecture-image" />
+                <svg width="1000" height="500" viewBox="0 0 1000 500" class="architecture-image">
+                    <!-- 背景 -->
+                    <rect width="1000" height="500" fill="#f5f7fa" />
+                    <pattern id="security-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(63, 81, 181, 0.05)" stroke-width="1" />
+                    </pattern>
+                    <rect width="1000" height="500" fill="url(#security-grid)" opacity="0.5" />
+
+                    <!-- 标题 -->
+                    <text x="500" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold"
+                        text-anchor="middle" fill="#1a237e">QuAIChain 安全框架</text>
+
+                    <!-- 中心安全核心 -->
+                    <g transform="translate(500, 250)">
+                        <circle cx="0" cy="0" r="100" fill="#f5f5f5" stroke="#d32f2f" stroke-width="3" />
+                        <circle cx="0" cy="0" r="80" fill="#ffebee" stroke="#d32f2f" stroke-width="1" />
+                        <circle cx="0" cy="0" r="60" fill="#ffcdd2" stroke="#d32f2f" stroke-width="1" />
+                        <text x="0" y="-15" font-family="Arial, sans-serif" font-size="18" font-weight="bold"
+                            text-anchor="middle" fill="#b71c1c">全方位安全架构</text>
+                        <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" text-anchor="middle"
+                            fill="#b71c1c">深度防御策略</text>
+                    </g>
+
+                    <!-- 外围六边形安全层 -->
+                    <g transform="translate(500, 250)">
+                        <!-- 外层六边形 -->
+                        <path d="M0,-200 L173,-100 L173,100 L0,200 L-173,100 L-173,-100 Z" fill="none" stroke="#9e9e9e"
+                            stroke-width="1" stroke-dasharray="5,3" />
+
+                        <!-- 中层六边形 -->
+                        <path d="M0,-160 L139,-80 L139,80 L0,160 L-139,80 L-139,-80 Z" fill="none" stroke="#9e9e9e"
+                            stroke-width="1" stroke-dasharray="5,3" />
+                    </g>
+
+                    <!-- 安全组件 -->
+                    <!-- 后量子密码学 -->
+                    <g transform="translate(500, 50)">
+                        <rect x="-120" y="-40" width="240" height="80" rx="10" fill="#e8eaf6" stroke="#3f51b5"
+                            stroke-width="2" />
+                        <text x="0" y="-15" font-family="Arial, sans-serif" font-size="16" font-weight="bold"
+                            text-anchor="middle" fill="#1a237e">后量子密码学</text>
+                        <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#3f51b5">•
+                            抵抗量子计算攻击的加密算法</text>
+                        <line x="0" y1="40" x2="0" y2="100" stroke="#3f51b5" stroke-width="2" stroke-dasharray="5,3" />
+                    </g>
+
+                    <!-- 零知识证明 -->
+                    <g transform="translate(800, 150)">
+                        <rect x="-120" y="-40" width="240" height="80" rx="10" fill="#e0f2f1" stroke="#00796b"
+                            stroke-width="2" />
+                        <text x="0" y="-15" font-family="Arial, sans-serif" font-size="16" font-weight="bold"
+                            text-anchor="middle" fill="#004d40">零知识证明</text>
+                        <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#00796b">•
+                            隐私保护的同时确保交易验证</text>
+                        <line x="-120" y="0" x2="-180" y2="0" stroke="#00796b" stroke-width="2"
+                            stroke-dasharray="5,3" />
+                    </g>
+
+                    <!-- 多层安全架构 -->
+                    <g transform="translate(800, 350)">
+                        <rect x="-120" y="-40" width="240" height="80" rx="10" fill="#fff3e0" stroke="#e65100"
+                            stroke-width="2" />
+                        <text x="0" y="-15" font-family="Arial, sans-serif" font-size="16" font-weight="bold"
+                            text-anchor="middle" fill="#e65100">多层安全架构</text>
+                        <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#e65100">•
+                            从硬件到应用层的全方位安全设计</text>
+                        <line x="-120" y="0" x2="-180" y2="0" stroke="#e65100" stroke-width="2"
+                            stroke-dasharray="5,3" />
+                    </g>
+
+                    <!-- 自适应安全框架 -->
+                    <g transform="translate(500, 450)">
+                        <rect x="-120" y="-40" width="240" height="80" rx="10" fill="#f3e5f5" stroke="#7b1fa2"
+                            stroke-width="2" />
+                        <text x="0" y="-15" font-family="Arial, sans-serif" font-size="16" font-weight="bold"
+                            text-anchor="middle" fill="#4a148c">自适应安全框架</text>
+                        <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#7b1fa2">•
+                            基于AI的安全威胁检测和响应系统</text>
+                        <line x="0" y="-40" x2="0" y2="-60" stroke="#7b1fa2" stroke-width="2" stroke-dasharray="5,3" />
+                    </g>
+
+                    <!-- 安全身份验证 -->
+                    <g transform="translate(200, 350)">
+                        <rect x="-120" y="-40" width="240" height="80" rx="10" fill="#e1f5fe" stroke="#0288d1"
+                            stroke-width="2" />
+                        <text x="0" y="-15" font-family="Arial, sans-serif" font-size="16" font-weight="bold"
+                            text-anchor="middle" fill="#01579b">安全身份验证</text>
+                        <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#0288d1">•
+                            多因素认证和去中心化身份管理</text>
+                        <line x="120" y="0" x2="180" y2="0" stroke="#0288d1" stroke-width="2" stroke-dasharray="5,3" />
+                    </g>
+
+                    <!-- 安全运营中心 -->
+                    <g transform="translate(200, 150)">
+                        <rect x="-120" y="-40" width="240" height="80" rx="10" fill="#f9fbe7" stroke="#827717"
+                            stroke-width="2" />
+                        <text x="0" y="-15" font-family="Arial, sans-serif" font-size="16" font-weight="bold"
+                            text-anchor="middle" fill="#827717">安全运营中心</text>
+                        <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#827717">•
+                            24/7实时监控与威胁情报</text>
+                        <line x="120" y="0" x2="180" y2="0" stroke="#827717" stroke-width="2" stroke-dasharray="5,3" />
+                    </g>
+
+                    <!-- 安全层级标识 -->
+                    <g transform="translate(100, 100)">
+                        <rect x="-70" y="-70" width="140" height="140" rx="10" fill="#ffffff" stroke="#9e9e9e"
+                            stroke-width="1" />
+                        <text x="0" y="-45" font-family="Arial, sans-serif" font-size="14" font-weight="bold"
+                            text-anchor="middle" fill="#212121">安全层级</text>
+                        <line x1="-50" y1="-30" x2="50" y2="-30" stroke="#9e9e9e" stroke-width="1" />
+
+                        <!-- 层级1 -->
+                        <rect x="-40" y="-15" width="12" height="12" fill="#f44336" />
+                        <text x="35" y="-5" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#212121">数据安全</text>
+
+                        <!-- 层级2 -->
+                        <rect x="-40" y="10" width="12" height="12" fill="#2196f3" />
+                        <text x="35" y="20" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#212121">网络安全</text>
+
+                        <!-- 层级3 -->
+                        <rect x="-40" y="35" width="12" height="12" fill="#4caf50" />
+                        <text x="35" y="45" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#212121">应用安全</text>
+
+                        <!-- 层级4 -->
+                        <rect x="-40" y="60" width="12" height="12" fill="#ff9800" />
+                        <text x="35" y="70" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#212121">运营安全</text>
+                    </g>
+
+                    <!-- 安全特性 -->
+                    <g transform="translate(900, 100)">
+                        <rect x="-70" y="-70" width="140" height="180" rx="10" fill="#ffffff" stroke="#9e9e9e"
+                            stroke-width="1" />
+                        <text x="0" y="-45" font-family="Arial, sans-serif" font-size="14" font-weight="bold"
+                            text-anchor="middle" fill="#212121">安全特性</text>
+                        <line x1="-50" y1="-30" x2="50" y2="-30" stroke="#9e9e9e" stroke-width="1" />
+
+                        <text x="0" y="-10" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#212121">•
+                            量子抗性加密</text>
+                        <text x="0" y="10" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#212121">•
+                            去中心化验证</text>
+                        <text x="0" y="30" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#212121">•
+                            多重签名保护</text>
+                        <text x="0" y="50" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#212121">•
+                            实时威胁检测</text>
+                        <text x="0" y="70" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#212121">•
+                            自动响应机制</text>
+                        <text x="0" y="90" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#212121">•
+                            漏洞赏金计划</text>
+                    </g>
+
+                    <!-- 安全威胁防护层 -->
+                    <g transform="translate(500, 250)">
+                        <!-- 威胁类型指示器 -->
+                        <g transform="rotate(0)">
+                            <line x1="100" y1="0" x2="170" y2="0" stroke="#d32f2f" stroke-width="1" />
+                            <circle cx="185" cy="0" r="15" fill="#ffebee" stroke="#d32f2f" stroke-width="1" />
+                            <text x="185" y="4" font-family="Arial, sans-serif" font-size="12" font-weight="bold"
+                                text-anchor="middle" fill="#d32f2f">1</text>
+                        </g>
+
+                        <g transform="rotate(60)">
+                            <line x1="100" y1="0" x2="170" y2="0" stroke="#d32f2f" stroke-width="1" />
+                            <circle cx="185" cy="0" r="15" fill="#ffebee" stroke="#d32f2f" stroke-width="1" />
+                            <text x="185" y="4" font-family="Arial, sans-serif" font-size="12" font-weight="bold"
+                                text-anchor="middle" fill="#d32f2f">2</text>
+                        </g>
+
+                        <g transform="rotate(120)">
+                            <line x1="100" y1="0" x2="170" y2="0" stroke="#d32f2f" stroke-width="1" />
+                            <circle cx="185" cy="0" r="15" fill="#ffebee" stroke="#d32f2f" stroke-width="1" />
+                            <text x="185" y="4" font-family="Arial, sans-serif" font-size="12" font-weight="bold"
+                                text-anchor="middle" fill="#d32f2f">3</text>
+                        </g>
+
+                        <g transform="rotate(180)">
+                            <line x1="100" y1="0" x2="170" y2="0" stroke="#d32f2f" stroke-width="1" />
+                            <circle cx="185" cy="0" r="15" fill="#ffebee" stroke="#d32f2f" stroke-width="1" />
+                            <text x="185" y="4" font-family="Arial, sans-serif" font-size="12" font-weight="bold"
+                                text-anchor="middle" fill="#d32f2f">4</text>
+                        </g>
+
+                        <g transform="rotate(240)">
+                            <line x1="100" y1="0" x2="170" y2="0" stroke="#d32f2f" stroke-width="1" />
+                            <circle cx="185" cy="0" r="15" fill="#ffebee" stroke="#d32f2f" stroke-width="1" />
+                            <text x="185" y="4" font-family="Arial, sans-serif" font-size="12" font-weight="bold"
+                                text-anchor="middle" fill="#d32f2f">5</text>
+                        </g>
+
+                        <g transform="rotate(300)">
+                            <line x1="100" y1="0" x2="170" y2="0" stroke="#d32f2f" stroke-width="1" />
+                            <circle cx="185" cy="0" r="15" fill="#ffebee" stroke="#d32f2f" stroke-width="1" />
+                            <text x="185" y="4" font-family="Arial, sans-serif" font-size="12" font-weight="bold"
+                                text-anchor="middle" fill="#d32f2f">6</text>
+                        </g>
+                    </g>
+
+                    <!-- 威胁参考表 -->
+                    <g transform="translate(100, 400)">
+                        <rect x="-70" y="-70" width="140" height="140" rx="10" fill="#ffffff" stroke="#9e9e9e"
+                            stroke-width="1" />
+                        <text x="0" y="-45" font-family="Arial, sans-serif" font-size="14" font-weight="bold"
+                            text-anchor="middle" fill="#b71c1c">威胁防护</text>
+                        <line x1="-50" y1="-30" x2="50" y2="-30" stroke="#9e9e9e" stroke-width="1" />
+
+                        <text x="0" y="-10" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#212121">1:
+                            量子计算攻击</text>
+                        <text x="0" y="10" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#212121">2:
+                            51%共识攻击</text>
+                        <text x="0" y="30" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#212121">3:
+                            智能合约漏洞</text>
+                        <text x="0" y="50" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#212121">4:
+                            隐私数据泄露</text>
+                        <text x="0" y="70" font-family="Arial, sans-serif" font-size="11" text-anchor="middle"
+                            fill="#212121">5:
+                            DDoS攻击</text>
+                    </g>
+
+                    <!-- 安全认证标志 -->
+                    <g transform="translate(900, 400)">
+                        <rect x="-70" y="-70" width="140" height="140" rx="10" fill="#ffffff" stroke="#9e9e9e"
+                            stroke-width="1" />
+                        <text x="0" y="-45" font-family="Arial, sans-serif" font-size="14" font-weight="bold"
+                            text-anchor="middle" fill="#01579b">安全认证</text>
+                        <line x1="-50" y1="-30" x2="50" y2="-30" stroke="#9e9e9e" stroke-width="1" />
+
+                        <circle cx="-25" cy="-5" r="15" fill="#e3f2fd" stroke="#0288d1" stroke-width="1" />
+                        <text x="25" y="0" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#01579b">ISO
+                            27001</text>
+
+                        <circle cx="-25" cy="30" r="15" fill="#e3f2fd" stroke="#0288d1" stroke-width="1" />
+                        <text x="25" y="35" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#01579b">NIST
+                            800-53</text>
+
+                        <circle cx="-25" cy="65" r="15" fill="#e3f2fd" stroke="#0288d1" stroke-width="1" />
+                        <text x="25" y="70" font-family="Arial, sans-serif" font-size="12" text-anchor="middle"
+                            fill="#01579b">FIPS
+                            140-3</text>
+                    </g>
+                </svg>
 
                 <div class="architecture-features">
                     <div class="architecture-feature">
