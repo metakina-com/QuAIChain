@@ -1,111 +1,2025 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuAIChain - Quantum-Powered AI & Blockchain</title>
+    <title>QuAIChain - 量子AI区块链融合生态系统</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* 全局样式 */
+        :root {
+            --primary-color: #3f51b5;
+            --primary-dark: #1a237e;
+            --primary-light: #c5cae9;
+            --accent-color: #ffd700;
+            --accent-dark: #ff8f00;
+            --success-color: #4caf50;
+            --info-color: #2196f3;
+            --warning-color: #ff9800;
+            --danger-color: #f44336;
+            --purple-color: #9c27b0;
+            --dark-text: #333333;
+            --light-text: #f5f5f5;
+            --background-light: #ffffff;
+            --background-dark: #0a1929;
+            --gradient-primary: linear-gradient(135deg, #1a237e 0%, #3f51b5 100%);
+            --gradient-accent: linear-gradient(135deg, #ff8f00 0%, #ffd700 100%);
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background: #0A0A23;
-            color: #FFFFFF;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            color: var(--dark-text);
+            background-color: var(--background-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--light-text);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 15px rgba(26, 35, 126, 0.3);
+            transform: translateY(-2px);
+            color: var(--light-text);
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+            color: var(--dark-text);
+        }
+
+        .btn-accent:hover {
+            box-shadow: 0 6px 15px rgba(255, 143, 0, 0.3);
+            transform: translateY(-2px);
+            color: var(--dark-text);
+        }
+
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            opacity: 0.8;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        /* 导航栏 */
+        header {
+            background-color: var(--background-light);
+            box-shadow: var(--box-shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
         }
 
         nav {
-            background: #1E1E3F;
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-        }
-
-        nav ul {
-            list-style: none;
             display: flex;
-            justify-content: space-around;
-            margin: 0;
-            padding: 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
         }
 
-        nav a {
-            color: #00D4FF;
-            text-decoration: none;
-            font-weight: bold;
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
         }
 
-        nav a:hover {
-            color: #FFFFFF;
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
         }
 
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+
+        /* 英雄区 */
         .hero {
-            height: 100vh;
+            background: var(--gradient-primary);
+            color: var(--light-text);
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDIwIDAgTCAwIDAgMCAyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* 关于部分 */
+        .about {
+            background-color: var(--background-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .about-card {
+            background-color: var(--background-light);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(to bottom, #0A0A23, #1E1E3F);
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin: 0;
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .hero p {
+        .about-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: var(--light-text);
+        }
+
+        .about-icon.quantum {
+            background: linear-gradient(135deg, #3f51b5 0%, #1a237e 100%);
+        }
+
+        .about-icon.ai {
+            background: linear-gradient(135deg, #00bcd4 0%, #006064 100%);
+        }
+
+        .about-icon.blockchain {
+            background: linear-gradient(135deg, #4caf50 0%, #1b5e20 100%);
+        }
+
+        .about-title {
             font-size: 1.5rem;
-            margin: 1rem 0;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
         }
 
-        .cta {
-            margin-top: 2rem;
+        .about-text {
+            color: var(--dark-text);
+            opacity: 0.8;
         }
 
-        .cta a {
-            background: #00D4FF;
-            color: #0A0A23;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 0 1rem;
+        /* 技术架构 */
+        .architecture {
+            background-color: #f9fafc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .architecture::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDIwIDAgTCAwIDAgMCAyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDYzLCA4MSwgMTgxLCAwLjEpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=');
+            opacity: 0.3;
+        }
+
+        .architecture-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .architecture-tab {
+            padding: 12px 20px;
+            margin: 0 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            background-color: var(--background-light);
+            box-shadow: var(--box-shadow);
+        }
+
+        .architecture-tab.active {
+            background: var(--gradient-primary);
+            color: var(--light-text);
+        }
+
+        .architecture-content {
+            display: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .architecture-content.active {
+            display: block;
+        }
+
+        .architecture-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 40px;
+        }
+
+        .architecture-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .architecture-feature {
+            padding: 20px;
+            background-color: var(--background-light);
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .architecture-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .architecture-feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .architecture-feature-text {
+            color: var(--dark-text);
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* 代币经济 */
+        .tokenomics {
+            background-color: var(--background-light);
+        }
+
+        .tokenomics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .tokenomics-chart {
+            position: relative;
+            text-align: center;
+        }
+
+        .tokenomics-chart img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .tokenomics-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tokenomics-card {
+            background-color: var(--background-light);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .tokenomics-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .tokenomics-card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .tokenomics-card-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        .tokenomics-card-text {
+            color: var(--dark-text);
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* 应用场景 */
+        .applications {
+            background-color: #f9fafc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .applications::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDIwIDAgTCAwIDAgMCAyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDYzLCA4MSwgMTgxLCAwLjEpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=');
+            opacity: 0.3;
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .application-card {
+            background-color: var(--background-light);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .application-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .application-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--light-text);
+        }
+
+        .application-icon.finance {
+            background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+        }
+
+        .application-icon.pharma {
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+        }
+
+        .application-icon.energy {
+            background: linear-gradient(135deg, #4caf50 0%, #1b5e20 100%);
+        }
+
+        .application-icon.logistics {
+            background: linear-gradient(135deg, #f57c00 0%, #e65100 100%);
+        }
+
+        .application-icon.city {
+            background: linear-gradient(135deg, #00bcd4 0%, #006064 100%);
+        }
+
+        .application-icon.aerospace {
+            background: linear-gradient(135deg, #9c27b0 0%, #6a1b9a 100%);
+        }
+
+        .application-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .application-text {
+            color: var(--dark-text);
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .application-features {
+            list-style: none;
+        }
+
+        .application-features li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 25px;
+            font-size: 0.95rem;
+        }
+
+        .application-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
             font-weight: bold;
         }
 
-        .cta a:hover {
-            background: #FFFFFF;
+        /* 路线图 */
+        .roadmap {
+            background-color: var(--background-light);
+        }
+
+        .roadmap-container {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .roadmap-line {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-light);
+            transform: translateX(-50%);
+        }
+
+        .roadmap-item {
+            display: flex;
+            justify-content: flex-start;
+            padding-right: 30px;
+            margin-bottom: 50px;
+            position: relative;
+            width: 50%;
+        }
+
+        .roadmap-item:nth-child(even) {
+            margin-left: auto;
+            padding-right: 0;
+            padding-left: 30px;
+            justify-content: flex-end;
+        }
+
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            z-index: 1;
+        }
+
+        .roadmap-item:nth-child(odd)::before {
+            right: -10px;
+        }
+
+        .roadmap-item:nth-child(even)::before {
+            left: -10px;
+        }
+
+        .roadmap-content {
+            background-color: var(--background-light);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .roadmap-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .roadmap-date {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .roadmap-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .roadmap-text {
+            color: var(--dark-text);
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .roadmap-milestones {
+            margin-top: 15px;
+            list-style: none;
+        }
+
+        .roadmap-milestones li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 25px;
+            font-size: 0.9rem;
+        }
+
+        .roadmap-milestones li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            line-height: 0.8;
+        }
+
+        /* 团队 */
+        .team {
+            background-color: #f9fafc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDIwIDAgTCAwIDAgMCAyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDYzLCA4MSwgMTgxLCAwLjEpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=');
+            opacity: 0.3;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-card {
+            background-color: var(--background-light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 250px;
+            background-color: var(--primary-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-card:hover .team-image img {
+            transform: scale(1.05);
+        }
+
+        .team-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+
+        .team-position {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .team-bio {
+            color: var(--dark-text);
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .team-social a {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            transition: var(--transition);
+        }
+
+        .team-social a:hover {
+            background: var(--primary-color);
+            color: var(--light-text);
+            transform: translateY(-3px);
+        }
+
+        /* 合作伙伴 */
+        .partners {
+            background-color: var(--background-light);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .partner-card {
+            background-color: var(--background-light);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100px;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .partner-logo {
+            max-width: 100%;
+            max-height: 60px;
+            filter: grayscale(1) opacity(0.7);
+            transition: var(--transition);
+        }
+
+        .partner-card:hover .partner-logo {
+            filter: grayscale(0) opacity(1);
+        }
+
+        /* 联系 */
+        .contact {
+            background: var(--gradient-primary);
+            color: var(--light-text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDIwIDAgTCAwIDAgMCAyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==');
+            opacity: 0.1;
+        }
+
+        .contact-title {
+            color: var(--light-text);
+        }
+
+        .contact-subtitle {
+            color: var(--light-text);
+            opacity: 0.9;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 1.5rem;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .contact-detail {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .contact-form {
+            background-color: var(--background-light);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #d1d1d1;
+            background-color: #f9f9f9;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--background-dark);
+            color: var(--light-text);
+            padding: 80px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-about .logo {
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light-text);
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--light-text);
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary-light);
+            padding-left: 5px;
+        }
+
+        .footer-newsletter p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border-radius: 8px 0 0 8px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--light-text);
+            font-size: 1rem;
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .newsletter-btn {
+            padding: 0 15px;
+            border-radius: 0 8px 8px 0;
+            border: none;
+            background: var(--accent-color);
+            color: var(--dark-text);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background: var(--accent-dark);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .footer-about {
+                grid-column: span 3;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                max-width: 100%;
+                margin-bottom: 50px;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-card:last-child {
+                grid-column: span 2;
+            }
+
+            .tokenomics-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .tokenomics-chart {
+                order: -1;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-about {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 150px 0 80px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--background-light);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-200%);
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card:last-child {
+                grid-column: span 1;
+            }
+
+            .roadmap-line {
+                left: 20px;
+            }
+
+            .roadmap-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+
+            .roadmap-item:nth-child(even) {
+                padding-left: 50px;
+            }
+
+            .roadmap-item::before {
+                left: 10px;
+            }
+
+            .roadmap-item:nth-child(odd)::before {
+                right: auto;
+                left: 10px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-about {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .architecture-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .architecture-tab {
+                width: 100%;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 8px;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-btn {
+                width: 100%;
+                border-radius: 8px;
+                padding: 12px;
+            }
         }
     </style>
 </head>
 
 <body>
     <!-- 导航栏 -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#technology">Technology</a></li>
-            <li><a href="#tokenomics">Tokenomics</a></li>
-            <li><a href="#partners">Partners</a></li>
-            <li><a href="#ecosystem">Ecosystem</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="/api/placeholder/40/40" alt="QuAIChain Logo" />
+                    QuAIChain
+                </a>
+                <div class="mobile-toggle">☰</div>
+                <ul class="nav-links">
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#architecture">技术架构</a></li>
+                    <li><a href="#tokenomics">代币经济</a></li>
+                    <li><a href="#applications">应用场景</a></li>
+                    <li><a href="#roadmap">路线图</a></li>
+                    <li><a href="#team">团队</a></li>
+                    <li><a href="#contact" class="btn btn-accent">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <!-- 主页 -->
-    <section id="home" class="hero">
-        <h1>Unlock the Future with QuAIChain</h1>
-        <p>Quantum-Powered AI and Blockchain for a Decentralized Tomorrow</p>
-        <div class="cta">
-            <a href="#ecosystem">Explore Ecosystem</a>
-            <a href="#contact">Join Community</a>
+    <!-- 英雄区 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">量子计算、AI与区块链的创新融合</h1>
+                    <p class="hero-subtitle">QuAIChain通过量子增强智能合约(QESC)技术，打造全球首个融合量子计算、人工智能与区块链的分布式生态系统，重塑数字经济基础设施。</p>
+                    <div class="hero-btns">
+                        <a href="#tokenomics" class="btn btn-accent">探索代币经济</a>
+                        <a href="#architecture" class="btn btn-primary">了解技术架构</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="/api/placeholder/500/400" alt="QuAIChain Visualization" />
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- 其他页面内容可类似扩展 -->
+    <!-- 关于部分 -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">重新定义分布式智能生态</h2>
+            <p class="section-subtitle">QuAIChain不仅是一个技术平台，而是一个完整的创新生态系统，将前沿技术深度融合，为全球用户提供前所未有的计算能力和价值创造机会。</p>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon quantum">Q</div>
+                    <h3 class="about-title">量子计算优势</h3>
+                    <p class="about-text">通过量子计算技术，QuAIChain为AI训练和复杂计算提供100-1000倍的性能提升，同时显著降低能源消耗，开启计算能力新时代。</p>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-icon ai">AI</div>
+                    <h3 class="about-title">人工智能赋能</h3>
+                    <p class="about-text">整合最新AI技术，实现智能资源调度、自适应学习和智能决策支持，为各行业应用提供超越传统解决方案的智能化体验。</p>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-icon blockchain">BC</div>
+                    <h3 class="about-title">区块链安全基础</h3>
+                    <p class="about-text">基于混合共识机制和后量子加密技术，确保数据和资产安全，实现去中心化治理，为量子时代的数字基础设施提供安全保障。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术架构 -->
+    <section id="architecture" class="section architecture">
+        <div class="container">
+            <h2 class="section-title">创新技术架构</h2>
+            <p class="section-subtitle">QuAIChain采用五层创新架构设计，以量子增强智能合约(QESC)为核心，实现技术深度融合和能力倍增。</p>
+
+            <div class="architecture-tabs">
+                <div class="architecture-tab active" data-tab="overview">整体架构</div>
+                <div class="architecture-tab" data-tab="qesc">量子增强智能合约</div>
+                <div class="architecture-tab" data-tab="protocol">核心协议</div>
+                <div class="architecture-tab" data-tab="security">安全框架</div>
+            </div>
+
+            <div class="architecture-content active" id="overview">
+                <img src="/api/placeholder/1000/500" alt="QuAIChain Architecture" class="architecture-image" />
+
+                <div class="architecture-features">
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">应用层</h4>
+                        <p class="architecture-feature-text">包括行业应用、开发者工具、模型市场、数字钱包和DID身份系统，为用户提供丰富的交互界面和服务入口。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">服务层</h4>
+                        <p class="architecture-feature-text">提供API网关、计算资源市场、数据安全服务、模型训练服务和智能合约管理，实现核心功能的服务化封装。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">核心层</h4>
+                        <p class="architecture-feature-text">以量子增强智能合约(QESC)为中心，融合量子计算、AI和区块链安全，实现技术创新与能力倍增。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">协议层</h4>
+                        <p class="architecture-feature-text">包括量子-AI桥接、后量子加密、混合共识机制、资源调度协议和多方安全计算等创新协议。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">基础设施层</h4>
+                        <p class="architecture-feature-text">由全球分布的量子计算节点、区块链验证节点和AI训练加速器网络组成，提供强大的底层支撑。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="architecture-content" id="qesc">
+                <img src="/api/placeholder/1000/500" alt="QESC Architecture" class="architecture-image" />
+
+                <div class="architecture-features">
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">量子算法加速</h4>
+                        <p class="architecture-feature-text">利用量子算法优化复杂计算任务，提供最高1000倍的性能提升，大幅降低计算成本和时间。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">AI模型优化</h4>
+                        <p class="architecture-feature-text">通过量子机器学习技术优化AI模型训练和推理过程，提高模型精度和计算效率。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">智能合约执行环境</h4>
+                        <p class="architecture-feature-text">支持复杂逻辑的高性能执行环境，结合AI决策能力，实现更智能的合约行为。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">安全性保障</h4>
+                        <p class="architecture-feature-text">内置后量子加密机制，确保在量子计算时代依然保持数据和资产安全。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="architecture-content" id="protocol">
+                <img src="/api/placeholder/1000/500" alt="Core Protocols" class="architecture-image" />
+
+                <div class="architecture-features">
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">量子-AI桥接协议(QABP)</h4>
+                        <p class="architecture-feature-text">实现AI模型与量子计算资源的无缝连接，定义标准化接口和数据交换格式。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">适应性共识机制(ACM)</h4>
+                        <p class="architecture-feature-text">根据计算任务特性自动选择最优共识算法，平衡效率和安全性需求。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">资源调度协议</h4>
+                        <p class="architecture-feature-text">智能分配网络资源，优化计算效率和成本，实现资源利用率最大化。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">多方安全计算</h4>
+                        <p class="architecture-feature-text">允许多方在保护数据隐私的前提下进行协作计算，扩展应用场景。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="architecture-content" id="security">
+                <img src="/api/placeholder/1000/500" alt="Security Framework" class="architecture-image" />
+
+                <div class="architecture-features">
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">后量子密码学</h4>
+                        <p class="architecture-feature-text">采用抵抗量子计算攻击的加密算法，为网络和数据提供长期安全保障。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">零知识证明</h4>
+                        <p class="architecture-feature-text">实现隐私保护的同时确保交易验证，平衡透明度和隐私需求。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">多层安全架构</h4>
+                        <p class="architecture-feature-text">从硬件到应用层的全方位安全设计，构建深度防御体系。</p>
+                    </div>
+
+                    <div class="architecture-feature">
+                        <h4 class="architecture-feature-title">自适应安全框架</h4>
+                        <p class="architecture-feature-text">基于AI的安全威胁检测和响应系统，实时应对新型安全挑战。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 代币经济 -->
+    <section id="tokenomics" class="section tokenomics">
+        <div class="container">
+            <h2 class="section-title">QAI代币经济模型</h2>
+            <p class="section-subtitle">QAI代币是QuAIChain生态系统的核心价值媒介，通过精心设计的经济模型，确保生态系统的可持续发展和各参与方的利益最大化。</p>
+
+            <div class="tokenomics-grid">
+                <div class="tokenomics-chart">
+                    <img src="/api/placeholder/500/500" alt="QAI Token Distribution" />
+                </div>
+
+                <div class="tokenomics-info">
+                    <div class="tokenomics-card">
+                        <h3 class="tokenomics-card-title">
+                            <div class="tokenomics-card-icon" style="background-color: #4caf50;">40%</div>
+                            计算提供者奖励
+                        </h3>
+                        <p class="tokenomics-card-text">奖励提供量子计算、AI训练和区块链验证资源的节点。采用6年线性释放机制，基于实际贡献动态分配，鼓励早期资源贡献。</p>
+                    </div>
+
+                    <div class="tokenomics-card">
+                        <h3 class="tokenomics-card-title">
+                            <div class="tokenomics-card-icon" style="background-color: #2196f3;">25%</div>
+                            生态发展基金
+                        </h3>
+                        <p class="tokenomics-card-text">用于资助开发者、支持创新项目、推动生态系统扩展。由DAO治理管理，基于明确的发展里程碑分阶段释放。</p>
+                    </div>
+
+                    <div class="tokenomics-card">
+                        <h3 class="tokenomics-card-title">
+                            <div class="tokenomics-card-icon" style="background-color: #9c27b0;">15%</div>
+                            早期投资者
+                        </h3>
+                        <p class="tokenomics-card-text">为项目提供种子和早期资金的投资者。采用18个月锁定期，之后24个月线性释放，确保长期利益一致性。</p>
+                    </div>
+
+                    <div class="tokenomics-card">
+                        <h3 class="tokenomics-card-title">
+                            <div class="tokenomics-card-icon" style="background-color: #f44336;">10%</div>
+                            团队和顾问
+                        </h3>
+                        <p class="tokenomics-card-text">核心团队和项目顾问的激励。采用36个月锁定期，之后24个月线性释放，确保团队长期投入项目发展。</p>
+                    </div>
+
+                    <div class="tokenomics-card">
+                        <h3 class="tokenomics-card-title">
+                            <div class="tokenomics-card-icon" style="background-color: #ff9800;">10%</div>
+                            社区激励
+                        </h3>
+                        <p class="tokenomics-card-text">用于社区建设、推广活动和用户激励。通过空投、活动奖励和早期采用者激励计划分配。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用场景 -->
+    <section id="applications" class="section applications">
+        <div class="container">
+            <h2 class="section-title">垂直行业应用场景</h2>
+            <p class="section-subtitle">QuAIChain为多个垂直行业提供量身定制的解决方案，通过量子AI区块链融合技术解决传统方法难以突破的行业痛点。</p>
+
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="application-icon finance">F</div>
+                    <h3 class="application-title">金融服务</h3>
+                    <p class="application-text">通过量子计算优化风险模型和交易策略，大幅提升金融决策精度和效率。</p>
+                    <ul class="application-features">
+                        <li>量子风险建模与评估</li>
+                        <li>高频交易策略优化</li>
+                        <li>资产组合管理</li>
+                        <li>欺诈检测与预防</li>
+                    </ul>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-icon pharma">P</div>
+                    <h3 class="application-title">医药研发</h3>
+                    <p class="application-text">加速药物发现和开发过程，降低研发成本，提高新药研发成功率。</p>
+                    <ul class="application-features">
+                        <li>药物分子模拟</li>
+                        <li>蛋白质折叠预测</li>
+                        <li>临床试验优化</li>
+                        <li>基因组数据分析</li>
+                    </ul>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-icon energy">E</div>
+
+
+                    <h3 class="application-title">能源管理</h3>
+                    <p class="application-text">优化能源生产、分配和消耗，支持可再生能源集成和碳排放管理。</p>
+                    <ul class="application-features">
+                        <li>智能电网优化</li>
+                        <li>能源分配预测</li>
+                        <li>碳捕获模拟</li>
+                        <li>新能源材料研发</li>
+                    </ul>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-icon logistics">L</div>
+                    <h3 class="application-title">物流供应链</h3>
+                    <p class="application-text">提高供应链效率、透明度和安全性，降低运营成本和资源消耗。</p>
+                    <ul class="application-features">
+                        <li>路径优化算法</li>
+                        <li>库存预测与管理</li>
+                        <li>全球链路管理</li>
+                        <li>实时追踪与溯源</li>
+                    </ul>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-icon city">C</div>
+                    <h3 class="application-title">智慧城市</h3>
+                    <p class="application-text">优化城市资源利用和公共服务，提升城市运行效率和居民生活质量。</p>
+                    <ul class="application-features">
+                        <li>交通流量优化</li>
+                        <li>公共安全分析</li>
+                        <li>资源智能分配</li>
+                        <li>环境监测与保护</li>
+                    </ul>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-icon aerospace">A</div>
+                    <h3 class="application-title">航空航天</h3>
+                    <p class="application-text">突破航空航天领域技术瓶颈，支持航路优化、先进材料研发和导航系统优化。</p>
+                    <ul class="application-features">
+                        <li>轨道计算优化</li>
+                        <li>导航量子算法</li>
+                        <li>材料科学模拟</li>
+                        <li>飞行路径规划</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 路线图 -->
+    <section id="roadmap" class="section roadmap">
+        <div class="container">
+            <h2 class="section-title">项目发展路线图</h2>
+            <p class="section-subtitle">QuAIChain规划了清晰的发展路线，分阶段实现技术突破和商业落地，逐步构建全球领先的量子AI区块链生态系统。</p>
+
+            <div class="roadmap-container">
+                <div class="roadmap-line"></div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">2025年Q1-Q2</div>
+                        <h3 class="roadmap-title">基础建设期</h3>
+                        <p class="roadmap-text">完成核心技术研发和测试网络部署，构建初始生态系统。</p>
+                        <ul class="roadmap-milestones">
+                            <li>完成QESC核心协议设计</li>
+                            <li>发布测试网</li>
+                            <li>推出开发者工具包</li>
+                            <li>初始代币分配与激励</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">2025年Q3-Q4</div>
+                        <h3 class="roadmap-title">主网启动期</h3>
+                        <p class="roadmap-text">主网正式上线，实现核心功能和初步商业化应用。</p>
+                        <ul class="roadmap-milestones">
+                            <li>Beta主网上线</li>
+                            <li>整合首批量子节点</li>
+                            <li>启动金融和医药垂直市场渗透</li>
+                            <li>完成前5个垂直行业解决方案</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">2026年全年</div>
+                        <h3 class="roadmap-title">生态扩张期</h3>
+                        <p class="roadmap-text">扩大生态系统规模，增加应用场景，提升技术成熟度。</p>
+                        <ul class="roadmap-milestones">
+                            <li>规模化节点网络（100+量子节点）</li>
+                            <li>推出跨链互操作协议</li>
+                            <li>发布企业级API和SDK</li>
+                            <li>建立首个区域性创新中心</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">2027年-2028年</div>
+                        <h3 class="roadmap-title">全球覆盖期</h3>
+                        <p class="roadmap-text">实现全球范围内的技术和市场覆盖，建立行业标准。</p>
+                        <ul class="roadmap-milestones">
+                            <li>建立全球量子节点网络</li>
+                            <li>推出消费级应用平台</li>
+                            <li>与主要云服务商集成</li>
+                            <li>建立行业标准和认证体系</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">2029年-2030年</div>
+                        <h3 class="roadmap-title">主流采用期</h3>
+                        <p class="roadmap-text">成为量子AI区块链领域的主导力量，引领下一代数字经济基础设施。</p>
+                        <ul class="roadmap-milestones">
+                            <li>推动量子AI应用普及</li>
+                            <li>成为Fortune 500企业标准技术</li>
+                            <li>提供全球1%的AI计算量</li>
+                            <li>控制15%量子计算服务市场</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队 -->
+    <section id="team" class="section team">
+        <div class="container">
+            <h2 class="section-title">核心团队</h2>
+            <p class="section-subtitle">QuAIChain由量子计算、AI和区块链领域的顶尖专家组成，融合学术研究和商业实践的丰富经验。</p>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="/api/placeholder/300/300" alt="Dr. Emma Patel" />
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Emma Patel</h3>
+                        <div class="team-position">量子计算负责人</div>
+                        <p class="team-bio">MIT博士，前Google Quantum AI首席架构师，拥有5项量子算法专利，在量子计算领域拥有超过10年研究经验。</p>
+                        <div class="team-social">
+                            <a href="#"><span>in</span></a>
+                            <a href="#"><span>tw</span></a>
+                            <a href="#"><span>gh</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="/api/placeholder/300/300" alt="Prof. Hiroshi Tanaka" />
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Prof. Hiroshi Tanaka</h3>
+                        <div class="team-position">区块链架构师</div>
+                        <p class="team-bio">东京大学教授，Hyperledger基金会技术委员会成员，领导过多个企业级区块链项目，区块链安全专家。</p>
+                        <div class="team-social">
+                            <a href="#"><span>in</span></a>
+                            <a href="#"><span>tw</span></a>
+                            <a href="#"><span>gh</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="/api/placeholder/300/300" alt="Dr. Sophia Lee" />
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Sophia Lee</h3>
+                        <div class="team-position">AI研究总监</div>
+                        <p class="team-bio">斯坦福大学博士，前OpenAI研究科学家，参与GPT-5架构设计，专注于AI和量子计算的融合应用研究。</p>
+                        <div class="team-social">
+                            <a href="#"><span>in</span></a>
+                            <a href="#"><span>tw</span></a>
+                            <a href="#"><span>gh</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="/api/placeholder/300/300" alt="Mr. Raj Singh" />
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Mr. Raj Singh</h3>
+                        <div class="team-position">首席商务官</div>
+                        <p class="team-bio">成功创办并出售3家区块链企业，融资经验超过2亿美元，拥有丰富的区块链商业化和生态系统建设经验。</p>
+                        <div class="team-social">
+                            <a href="#"><span>in</span></a>
+                            <a href="#"><span>tw</span></a>
+                            <a href="#"><span>gh</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="margin-bottom: 20px;">顾问团队</h3>
+                <div class="team-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+                    <div class="team-card">
+                        <div class="team-info">
+                            <h3 class="team-name">Dr. Michael Chen</h3>
+                            <div class="team-position">量子计算顾问</div>
+                            <p class="team-bio">IBM量子计算部门前主管，量子硬件专家。</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-info">
+                            <h3 class="team-name">Prof. Maria Rodriguez</h3>
+                            <div class="team-position">密码学顾问</div>
+                            <p class="team-bio">普林斯顿大学密码学专家，后量子加密领域先驱。</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-info">
+                            <h3 class="team-name">Ms. Kanya Williams</h3>
+                            <div class="team-position">商业战略顾问</div>
+                            <p class="team-bio">前Coinbase企业发展副总裁，加密货币市场专家。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作伙伴 -->
+    <section id="partners" class="section partners">
+        <div class="container">
+            <h2 class="section-title">战略合作伙伴</h2>
+            <p class="section-subtitle">QuAIChain与全球领先的技术公司、研究机构和行业巨头建立深度合作关系，共同推动技术创新和商业应用。</p>
+
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <img src="/api/placeholder/150/60" alt="Google" class="partner-logo" />
+                </div>
+
+                <div class="partner-card">
+                    <img src="/api/placeholder/150/60" alt="IBM" class="partner-logo" />
+                </div>
+
+                <div class="partner-card">
+                    <img src="/api/placeholder/150/60" alt="Microsoft" class="partner-logo" />
+                </div>
+
+                <div class="partner-card">
+                    <img src="/api/placeholder/150/60" alt="OpenAI" class="partner-logo" />
+                </div>
+
+                <div class="partner-card">
+                    <img src="/api/placeholder/150/60" alt="Stanford University" class="partner-logo" />
+                </div>
+
+                <div class="partner-card">
+                    <img src="/api/placeholder/150/60" alt="Pfizer" class="partner-logo" />
+                </div>
+
+                <div class="partner-card">
+                    <img src="/api/placeholder/150/60" alt="JPMorgan" class="partner-logo" />
+                </div>
+
+                <div class="partner-card">
+                    <img src="/api/placeholder/150/60" alt="AWS" class="partner-logo" />
+                </div>
+
+                <div class="partner-card">
+                    <img src="/api/placeholder/150/60" alt="Rigetti Computing" class="partner-logo" />
+                </div>
+
+                <div class="partner-card">
+                    <img src="/api/placeholder/150/60" alt="ConsenSys" class="partner-logo" />
+                </div>
+
+                <div class="partner-card">
+                    <img src="/api/placeholder/150/60" alt="SpaceX" class="partner-logo" />
+                </div>
+
+                <div class="partner-card">
+                    <img src="/api/placeholder/150/60" alt="Shell" class="partner-logo" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系 -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title contact-title">与我们联系</h2>
+            <p class="section-subtitle contact-subtitle">无论您是潜在的合作伙伴、投资者还是开发者，我们都期待与您探讨QuAIChain的无限可能。</p>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">✉</div>
+                        <div class="contact-text">
+                            <div class="contact-label">电子邮件</div>
+                            <div class="contact-detail">info@quaichain.io</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <div class="contact-label">总部地址</div>
+                            <div class="contact-detail">美国加利福尼亚州帕洛阿尔托科技园区10号楼</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-text">
+                            <div class="contact-label">全球办公室</div>
+                            <div class="contact-detail">新加坡 · 苏黎世 · 东京 · 伦敦</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🤝</div>
+                        <div class="contact-text">
+                            <div class="contact-label">合作咨询</div>
+                            <div class="contact-detail">partnership@quaichain.io</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="form-label">姓名</label>
+                            <input type="text" id="name" class="form-input" placeholder="您的姓名" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">电子邮件</label>
+                            <input type="email" id="email" class="form-input" placeholder="您的电子邮件" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">主题</label>
+                            <input type="text" id="subject" class="form-input" placeholder="咨询主题" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">留言</label>
+                            <textarea id="message" class="form-input form-textarea" placeholder="请输入您的留言"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-accent">发送留言</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="logo">
+                        <img src="/api/placeholder/40/40" alt="QuAIChain Logo" />
+                        QuAIChain
+                    </a>
+                    <p>QuAIChain融合量子计算、人工智能与区块链技术，打造全球首个分布式量子智能网络，重塑数字经济基础设施，引领下一代计算革命。</p>
+                    <div class="footer-social">
+                        <a href="#"><span>tw</span></a>
+                        <a href="#"><span>li</span></a>
+                        <a href="#"><span>gh</span></a>
+                        <a href="#"><span>tg</span></a>
+                        <a href="#"><span>dc</span></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="footer-title">快速链接</h3>
+                    <ul>
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#architecture">技术架构</a></li>
+                        <li><a href="#tokenomics">代币经济</a></li>
+                        <li><a href="#applications">应用场景</a></li>
+                        <li><a href="#roadmap">路线图</a></li>
+                        <li><a href="#team">团队</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="footer-title">资源中心</h3>
+                    <ul>
+                        <li><a href="#">白皮书</a></li>
+                        <li><a href="#">开发文档</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">API文档</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">博客</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h3 class="footer-title">订阅通讯</h3>
+                    <p>订阅我们的电子通讯，及时了解QuAIChain的最新进展、技术更新和活动信息。</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="您的电子邮件地址" class="newsletter-input" />
+                        <button type="submit" class="newsletter-btn">订阅</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 QuAIChain Foundation. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 移动端菜单切换
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // 导航链接平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                navLinks.classList.remove('active');
+
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 技术架构标签切换
+        const architectureTabs = document.querySelectorAll('.architecture-tab');
+        const architectureContents = document.querySelectorAll('.architecture-content');
+
+        architectureTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+
+                architectureTabs.forEach(t => t.classList.remove('active'));
+                architectureContents.forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
